@@ -6,5 +6,5 @@
    <Menu text="alibre-assembly-constraints-pp-addon"/>
    <Description>alibre-assembly-constraints-pp-addon</Description> 
    <Workspace type="Always"/>
-   <Property name="Identifier" value="alibre-assembly-constraints-pp-addon"/>
+   <Property name="Identifier" value="{86D5A561-6166-46E5-9BA3-0E39BC75A6B2}"/>
 </AlibreDesignAddOn>

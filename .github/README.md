@@ -1,42 +1,28 @@
 # Assembly Constraints++ for Alibre Design
 
-> Note: This repository is undergoing significant changes and is currently a work in progress.
+A starter/template project for building an Alibre Design add-on. It provides a working add-on scaffold — menu registration, IronPython hosting, packaging, and installer — with a sample command you can replace with your own assembly-constraint tooling.
 
-| Item | Value |
-| --- | --- |
-| Type | Alibre add-on / plugin |
-| Primary stack | Python, VB.NET, Alibre automation |
+> **Status:** Placeholder / starter. The "Assembly Constraints++" name describes the intended direction; the bundled command is sample scaffolding (a parametric gear-sketch generator) included to demonstrate a complete, runnable add-on. Replace it with your own implementation.
 
-## Overview
-This repository contains the source and supporting assets for Assembly Constraints++ for Alibre Design, organized under the standardized repository layout.
-
-## Repository Layout
-- source/: project source, solution or project files, and runtime assets.
-- submodules/: external git submodules used by the repository when required.
-- documentation/: supplementary notes, changelogs, and non-GitHub documentation.
-- .github/: repository README, templates, and GitHub-specific community files.
-- `source/alibre-assembly-constraints-pp-addon-solution.sln`: key source or build entry point.
-- `source/alibre-assembly-constraints-pp-addon-solution.slnx`: key source or build entry point.
-- `source/alibre-assembly-constraints-pp-addon.adc`: key source or build entry point.
-- `source/alibre-assembly-constraints-pp-addon.vbproj`: key source or build entry point.
-- `source/scripts/alibre_setup.py`: key source or build entry point.
-- `LICENSE.txt`: repository license file kept at the root.
+## What's Included
+- A managed (VB.NET) add-on shell that registers an "Assembly Constraints++" menu and command in Alibre Design.
+- A hosted IronPython runtime with a sample `scripts/Template.py` command, wired end to end as a reference implementation.
+- Packaging and registration assets: `.adc` manifest, registry template, and an Inno Setup installer script.
 
 ## Requirements
-- Windows development environment.
-- A .NET build environment compatible with the projects under source/.
-- Python installed if you need to run or modify the Python components under source/.
-- Alibre Design installed if you need to run, debug, or validate the Alibre integration.
+- Alibre Design 29.0.0.29060 (requires the bundled AlibreScript add-on).
+- .NET Framework 4.8.1 (net481), x64.
+- IronPython 2.7.10 (bundled with the add-on; no separate install required).
 
-## Build and Use
-1. Open `source/alibre-assembly-constraints-pp-addon-solution.sln` in your preferred IDE.
-2. Restore dependencies and build from the source/ layout.
-3. Use the notes in documentation/ and .github/README.md as the primary repository guide.
+## Getting Started
+1. Build the `source/alibre-assembly-constraints-pp-addon.vbproj` project (Release, net481), or use the included Inno Setup template (`source/alibre-assembly-constraints-pp-addon.iss`).
+2. Copy the build output (the `.adc` manifest, `alibre-assembly-constraints-pp-addon.dll`, the IronPython / Microsoft.Scripting DLLs, `logo.ico`, and the `scripts` folder) to a folder on your machine.
+3. Register the add-on so Alibre can discover it by adding its folder path under `HKEY_LOCAL_MACHINE\SOFTWARE\Alibre Design Add-Ons` (see `source/alibre-assembly-constraints-pp-addon.reg` for the format).
+4. Restart Alibre Design. The "Assembly Constraints++" menu and command confirm the scaffold loads.
 
-## Current Limitations
-- The repository has been normalized for layout consistency; any path-sensitive tooling should be revalidated against the new folder structure.
-- Existing runtime behavior and project-specific limitations remain unchanged.
+## Customizing
+- Replace the logic in `source/scripts/Template.py` with your own command implementation.
+- Update the menu and command names in the add-on shell (`AlibreAddOn`) and the `.adc` manifest to match your tool.
 
 ## License
 See [LICENSE](../LICENSE.txt).
-
