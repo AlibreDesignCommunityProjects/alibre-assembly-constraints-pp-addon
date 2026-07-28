@@ -19,7 +19,6 @@
   - Where things live
     - `source/` holds the VB.NET add-on, the sample script, and the packaging assets.
     - `documentation/` holds reference notes.
-    - `reviews/` holds dated code reviews.
   - Good to know
     - The gear generator is there to prove the pipeline runs end to end, not because the add-on is about gears.
   - Use it under the MIT License.
